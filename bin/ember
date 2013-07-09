@@ -44,6 +44,21 @@ program
   .option('-v, --view [name]',              'generates a view');
 
 program
+  .command('g')
+  .description('alias for `generate`')
+  .action(function() {
+    generate.apply(null, arguments);
+  })
+  .option('-c, --controller [name]',        'generates a controller')
+  .option('-l, --helper [name]',            'generates a handlebars helper')
+  .option('-x, --mixin [name]',             'generates a mixin')
+  .option('-m, --model [name] [fields]',    'generates a model with optional [fields]')
+  .option('-r, --route [name]',             'generates a route')
+  .option('-s, --scaffold [name] [fields]', 'scaffolds full CRUD for a model')
+  .option('-t, --template [name]',          'generates a handlebars template')
+  .option('-v, --view [name]',              'generates a view');
+
+program
   .command('precompile')
   .description('precompile templates from src dir to target dir')
   .action(function() {
